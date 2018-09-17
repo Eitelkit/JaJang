@@ -1,0 +1,18 @@
+.title-heading {
+  text-align: center;
+  color: red;
+}
+.headitem_h0 {
+  fill: #000000;
+  stroke: none;
+  font-size: 48px;
+}
+.nullSvg :hover {
+  opacity: 0.5;
+}
+.nullSvg {
+  cursor: pointer;
+}
+.Item :hover{
+  visibility: visible;
+}

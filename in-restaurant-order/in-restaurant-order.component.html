@@ -1,0 +1,54 @@
+<div *ngIf="this.tableId !== null">
+  <img [src]='changeGifAccordingToStatus()'>
+</div>
+<div class="row">
+  <div class="col-4">
+    <button class=""mat-raised-button color="warn" (click)="needService()">Need Service</button>
+  </div>
+  <div class="col-4">
+    <button mat-raised-button color="yellow" [routerLink]="'/restaurants/'+ restaurantId" [queryParams]="{tableKey: tableId}">Order More</button>
+  </div>
+  <div class="col-4 pl-2 pr-0">
+    <button mat-raised-button color="warn" (click)="checkOut()">Check Out</button>
+  </div>
+</div>
+<div>
+  <ng-container *ngFor="let order of orders">
+    <p>{{ order.date | date: 'medium'}}</p>
+    <p> Status: {{ order.status }}</p>
+    <table class="table">
+      <thead>
+      <tr>
+        <th></th>
+        <th>Product</th>
+        <th style="width: 230px;">Quantity</th>
+        <th style="width: 200px;">Price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of order.items">
+        <td><img [src]="item.imageUrl" class="thumbnail"></td>
+        <td class="align-middle">
+          {{ item.title }}
+        </td>
+        <td class="align-middle">
+          {{ item.quantity }}
+        </td>
+        <td class="align-middle">
+          {{ (item.price * item.quantity) | currency:'USD':true }}
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+          {{ order.totalPrice | currency:'USD':true}}
+        </th>
+      </tfoot>
+    </table>
+
+  </ng-container>
+</div>

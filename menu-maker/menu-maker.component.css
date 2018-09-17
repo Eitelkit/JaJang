@@ -1,0 +1,8 @@
+.scrollbar1 {
+  height: calc(100vh - 50px);
+  overflow-y: scroll;
+}
+.menuSidebar:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}

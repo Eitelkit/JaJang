@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-md-6">
+    <form #f="ngForm" (ngSubmit)="save(f.value)">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input #name="ngModel" [(ngModel)]="restaurant.name" name="name" id = "name" type="text" class="form-control" required>
+        <div class="alert alert-danger p-0 pl-1" *ngIf="name.touched && name.invalid">
+          <span>Name is required!</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input #address="ngModel" [(ngModel)]="restaurant.address" name="address" id = "address" type="text" class="form-control" required>
+        <div class="alert alert-danger p-0 pl-1" *ngIf="address.touched && address.invalid">
+          <div *ngIf="address?.errors.required">Address is required!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea #description="ngModel" [(ngModel)]="restaurant.description" name="description" id = "description" type="text" class="form-control" row="3" required>
+        </textarea>
+        <div class="alert alert-danger p-0 pl-1" *ngIf="description.touched && description.invalid">
+          <div *ngIf="description?.errors.required">description is required!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="ownerName">Owner Name</label>
+        <input #ownerName="ngModel" [(ngModel)]="restaurant.ownerName" name="ownerName" id = "ownerName" type="text" class="form-control" required>
+        <div class="alert alert-danger p-0 pl-1" *ngIf="ownerName.touched && ownerName.invalid">
+          <div *ngIf="ownerName?.errors.required">Owner name is required!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="imageUrl">Image URL</label>
+        <input #imageUrl="ngModel" [(ngModel)]="restaurant.imageUrl" name="imageUrl" id = "imageUrl" type="text" class="form-control" required url>
+        <div class="alert alert-danger p-0 pl-1" *ngIf="imageUrl.touched && imageUrl.invalid">
+          <div *ngIf="imageUrl?.errors.required">Image URL is required!</div>
+          <div *ngIf="imageUrl?.errors.url">Please enter a valid url!</div>
+        </div>
+      </div>
+      <button class="btn btn-primary">save</button>
+      <button type="button" (click)="delete()" class="btn btn-danger">delete</button>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="restaurant.name" class="card m-4" style="width: 18rem;">
+      <img class="card-img-top" [src]="restaurant.imageUrl" *ngIf="restaurant.imageUrl">
+      <div class="card-body">
+        <h5 class="card-title">{{ restaurant.description }}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+

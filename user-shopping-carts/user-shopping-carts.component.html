@@ -1,0 +1,11 @@
+<div class="row mt-3">
+  <h1 class="col-3">Shopping Cart</h1>
+  <div class="col justify"><button class="mt-2" mat-raised-button (click)="remove()">Remove All</button>
+  </div>
+</div>
+<div *ngIf="carts$ | async as carts">
+  <div *ngFor="let cart of carts.carts">
+    <app-shopping-cart [restaurantId]="cart.restuarantId"></app-shopping-cart>
+  </div>
+</div>
+

@@ -1,0 +1,23 @@
+<div class="d-block d-sm-none">
+  <div class="row">
+    <app-product-filter [category]="category"></app-product-filter>
+    <div class="card-columns">
+      <app-product-card *ngFor="let product of filteredProducts" [product]="product" [shoppingCart]="cart" class="card"></app-product-card>
+    </div>
+  </div>
+</div>
+<div class="d-none d-sm-block">
+  <div class="row" *ngIf="cart$| async as cart">
+    <div class="col-3">
+      <app-product-filter [category]="category"></app-product-filter>
+    </div>
+    <div class="col-9">
+      <div class="card-columns">
+        <app-product-card *ngFor="let product of filteredProducts" [product]="product" [shoppingCart]="cart" class="card"></app-product-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

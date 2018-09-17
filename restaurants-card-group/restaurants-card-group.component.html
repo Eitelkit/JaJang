@@ -1,0 +1,10 @@
+<div class="">
+  <div class="card-columns">
+    <div *ngFor="let restaurant of restaurants" class="card" [routerLink]="restaurant.key">
+      <img [src]=restaurant.imageUrl alt="{{ restaurant.name }}" class="card-img-top" style="height: 200px;">
+      <div class="card-body mb-1 text-center">
+        <h5 class="card-title">{{ restaurant.name }}</h5>
+      </div>
+    </div>
+  </div>
+</div>

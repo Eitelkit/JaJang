@@ -1,0 +1,47 @@
+<ng-container>
+  <table class="table">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Product</th>
+      <th style="width: 230px;">Quantity</th>
+      <th style="width: 200px;">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of order.items">
+      <td><img [src]="item.imageUrl" class="thumbnail"></td>
+      <td class="align-middle">
+        {{ item.title }}
+      </td>
+      <td class="align-middle">
+        {{ item.quantity }}
+      </td>
+      <td class="align-middle">
+        {{ item.totalPrice | currency:'USD':true}}
+      </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>
+        {{ order.totalPrice | currency:'USD':true}}
+      </th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>
+        <button  mat-raised-button color="primary">Finish This Order</button>
+      </th>
+    </tr>
+    </tfoot>
+  </table>
+
+</ng-container>
+
+

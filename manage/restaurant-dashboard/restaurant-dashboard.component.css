@@ -1,0 +1,19 @@
+.nav-item {
+  cursor: pointer;
+}
+.nav-item :hover{
+  background-color: darkgrey;
+}
+.sidebar {
+  min-height: calc(100vh - 50px);
+}
+.occupied {
+  background-color: #bbfa23;
+  cursor: none;
+}
+.waiting {
+  background-color: #febd32;
+}
+.needService {
+  background-color: #fa2323;
+}

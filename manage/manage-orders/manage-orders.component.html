@@ -1,0 +1,22 @@
+<data-table
+  [items]="items"
+  [itemCount]="itemCount"
+  (reload)="reloadItems($event)"
+>
+  <data-table-column
+    [property]="'date'"
+    [header]="'Date'"
+    [sortable]="true"
+    [resizable]="true"
+  >
+    <ng-template #dataTableCell let-item="item"> {{ item.date | date:'medium' }}</ng-template>
+  </data-table-column>
+
+  <data-table-column
+    [property]="'key'"
+    [sortable]="true"
+  >
+    <ng-template #dataTableCell let-item="item"><a [routerLink] = "'../order-detail/' + [item.key]">Detail</a></ng-template>
+  </data-table-column>
+</data-table>
+

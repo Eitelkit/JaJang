@@ -1,0 +1,12 @@
+<div class="card-columns" *ngIf="tables$ | async as tables">
+  <div class="card tableCard" *ngFor="let table of tables" [ngStyle]="{'width': tableSize+'px'}">
+    <img class="card-img" [src]="status(table)" alt="Card image" [routerLink]="'table-detail/' + table.key" >
+    <div class="card-footer p-0">
+      <div class="row">
+        <div class="col-6"><p>No.{{ table.index }} table<p></div>
+        <div class="col-6" *ngIf="status(table) === '../../assets/table-warning.png'"><a (click)="completeService(table.key)" style="cursor: pointer">cplt service</a></div>
+      </div>
+
+    </div>
+  </div>
+</div>

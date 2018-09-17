@@ -1,0 +1,258 @@
+<svg *ngIf="menuId!==null" id="imp11-menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" attr.width="{{ size || 571 }}" attr.height="{{ size * 739 / 571}}" viewBox="0 0 816 1056" xml:lang="en">
+  <g id="tt">
+    <style>
+      @page {size: letter;}
+    </style>
+
+    <defs>
+      <!--拖动时的图片-->
+      <pattern id="movepattern" x="0" y="0" width="100%" height="100%" patternUnits="objectBoundingBox">
+        <image xlink:href="img\menu\moving.svg" preserveAspectRatio="none" x="0in" y="0in" width="3800" height="3800"></image>
+      </pattern>
+      <!--top of page or column-->
+      <pattern id="movepattern_np" x="0" y="0" width="100%" height="100%" patternUnits="objectBoundingBox">
+        <image xlink:href="img\menu\moving_np.svg" preserveAspectRatio="none" x="0in" y="0in" width="3800" height="3800"></image>
+      </pattern>
+      <!--小箭头-->
+      <marker id="arrowtop" viewBox="0 0 12 12" refX="5" refY="5" markerUnits="strokeWidth" markerWidth="4" markerHeight="4" orient="270" fill="#333333">
+        <path d="M 0 0 L 12 5 L 0 10 z" stroke-width="1px"></path>
+      </marker>
+      <!--小箭头-->
+      <marker id="arrowbot" viewBox="0 0 12 12" refX="5" refY="5" markerUnits="strokeWidth" markerWidth="4" markerHeight="4" orient="auto" fill="#333333">
+        <path d="M 0 0 L 12 5 L 0 10 z" stroke-width="1px"></path>
+      </marker>
+      <!-- 11.0.58 fancy back -->
+      <!--燕尾小箭头-->
+      <marker id="arrowtop2" viewBox="-3 -3 7 7" refX="-1" refY="0" markerUnits="strokeWidth" markerWidth="4" markerHeight="4" orient="270" fill="#333333">
+        <polygon points="-1,0 -3,3 3,0 -3,-3"></polygon>
+      </marker>
+      <marker id="arrowbot2" viewBox="-3 -3 7 7" refX="-1" refY="0" markerUnits="strokeWidth" markerWidth="4" markerHeight="4" orient="auto" fill="#333333">
+        <polygon points="-1,0 -3,3 3,0 -3,-3" stroke-width="1px"></polygon>
+      </marker>
+
+      <!-- VINTAGE -->
+      <filter id="filter_vintage">
+        <!--棕色滤镜-->
+        <feFlood flood-color="#582D1C" result="SHDCLR"></feFlood>
+        <feMorphology operator="dilate" radius="2" in="SourceAlpha" result="WSTROKE"></feMorphology>
+        <feComponentTransfer in="WSTROKE" result="WSTROKE_B">
+          <feFuncA type="table" tableValues="0.0 0.7"></feFuncA>
+        </feComponentTransfer>
+        <feOffset dx="-2.5" dy="-2.5" in="WSTROKE_B" result="dx1"></feOffset>
+        <feOffset dx="-2" dy="-2" in="WSTROKE_B" result="dx2"></feOffset>
+        <feOffset dx="-1.5" dy="-1.5" in="WSTROKE_B" result="dx3"></feOffset>
+        <feOffset dx="-1" dy="-1" in="WSTROKE_B" result="dx4"></feOffset>
+        <feOffset dx="0" dy="0" in="WSTROKE_B" result="dx5"></feOffset>
+        <feOffset dx="1" dy="1" in="WSTROKE_B" result="dx6"></feOffset>
+        <feOffset dx="1.5" dy="1.5" in="WSTROKE_B" result="dx7"></feOffset>
+        <feOffset dx="2" dy="2" in="WSTROKE_B" result="dx8"></feOffset>
+        <feOffset dx="2.5" dy="2.5" in="WSTROKE_B" result="dx9"></feOffset>
+        <feMerge result="BEVEL_20">
+          <feMergeNode in="dx1"></feMergeNode>
+          <feMergeNode in="dx2"></feMergeNode>
+          <feMergeNode in="dx3"></feMergeNode>
+          <feMergeNode in="dx4"></feMergeNode>
+          <feMergeNode in="dx5"></feMergeNode>
+          <feMergeNode in="dx6"></feMergeNode>
+          <feMergeNode in="dx7"></feMergeNode>
+          <feMergeNode in="dx8"></feMergeNode>
+          <feMergeNode in="dx9"></feMergeNode>
+        </feMerge>
+
+        <feOffset dx="2" dy="2" in="BEVEL_20" result="BEVEL_25"></feOffset>
+        <feComposite operator="out" in="BEVEL_25" in2="WSTROKE" result="BEVEL_30"></feComposite>
+        <feComposite in="SHDCLR" in2="BEVEL_30" operator="in" result="BEVEL_40"></feComposite>
+        <feMerge result="BEVEL_50">
+          <feMergeNode in="BEVEL_40"></feMergeNode>
+          <feMergeNode in="SourceGraphic"></feMergeNode>
+        </feMerge>
+        <feComposite in="BEVEL_50" operator="in"></feComposite>
+      </filter>
+      <!-- WORN -->
+      <filter id="filter_worn">
+        <feTurbulence baseFrequency=".05,.005" type="fractalNoise" numOctaves="3" seed="0"></feTurbulence>
+        <feColorMatrix type="matrix" values="0 0 0 0 0, 0 0 0 0 0, 0 0 0 0 0, 0 0 0 -0.9 1.1" result="FRACTAL-1"></feColorMatrix>
+        <feConvolveMatrix order="8,8" divisor="1" kernelMatrix="1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1"></feConvolveMatrix> <!-- IE requires no line breaks -->
+        <feComposite operator="out"></feComposite>
+        <feComposite operator="in"></feComposite>
+        <feMerge>
+        <feMergeNode></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+        </feMerge>
+        <feComposite in2="FRACTAL-1" operator="in"></feComposite>
+      </filter>
+      <!-- GRUNGE -->
+      <filter id="filter_grunge">
+        <feTurbulence result="TURBULENCE" baseFrequency="0.1,0.01" numOctaves="1" seed="1"></feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="TURBULENCE" scale="5"></feDisplacementMap>
+      </filter>
+    </defs>
+    <!--菜单长方形-->
+    <rect id="faux-white-background" fill="#f0ece0" pointer-events="fill" x="0in" y="0in" height="11in" width="8.5in"></rect>
+    <g id="background" pointer-events="none" transform="translate(0,0) scale(1,1)" style="opacity: 1;">
+      <rect id="background-rect" fill="none" x="0in" y="0in" height="11in" width="8.5in"></rect>
+    </g>
+    <g id="menuborder" pointer-events="none" transform="translate(0,0) scale(1,1)" style="opacity: 1;">
+      <image x="28.799999999999997" y="28.799999999999997" width="758.4" height="998.4" preserveAspectRatio="none" xlink:href="img\menu\border1.svg">
+      </image>
+    </g>
+    <g id="colline" pointer-events="none" style="opacity: 1;"></g>
+    <!-- faux-click must be below images -->
+    <rect id="faux-click" pointer-events="fill" fill="none" x=".1in" y=".1in" height="10.8in" width="8.3in"></rect>
+    <g id="floatimages" data-target="#imagelist-contextmenu" style="pointer-events: all;"></g>
+    <!-- grid and joiner must be below text -->
+    <g id="gridlines" pointer-events="none"></g>
+    <g id="joiner"></g>
+    <g id="textcanvas" class="text-pre" data-target="#foodcanvas-contextmenu" style="opacity: 1; pointer-events: all;">
+      <g id="headitem_h0" class="headitem_h0">
+        <text alignment-baseline="baseline" text-anchor="start" id="fooddesc1" x="1.0000in" y="0.58in">
+          <tspan x="1.0000in" dy="60.6" od="51" text-anchor="start" class="title-heading" des="19.07" asc="50" lh="70.07" th="70.07" oh="79.67" lw="109" dy0="60.60" oh0="79.67" s_aft="0.00" s_bef="9.60" n_col="0">Gatsby's</tspan>
+        </text>
+        <rect id="nu_headitem_h0" class="rr" x="1in" y="55.67999999999999" height="79.67" width="624.0000" style="cursor: pointer; visibility: hidden;">
+
+        </rect>
+      </g>
+      <g *ngFor="let item of menuItems; let i = index">
+        <!--<g id="headitem_h1" style="">-->
+        <!--<text alignment-baseline="baseline" text-anchor="start" id="fooddesc1" x="1.0000in" y="2.7464583333333334in">-->
+        <!--<tspan x="1.0000in" dy="60.56" od="35.6" text-anchor="start" class="heading" des="13.10" asc="35.64" lh="48.74" th="48.74" oh="73.7" lw="174.9" dy0="60.56" oh0="73.70" s_aft="0.00" s_bef="24.96" n_col="0">Sample Heading</tspan>-->
+        <!--</text>-->
+        <!--<rect id="nu_headitem_h1" class="rr" x="1in" y="263.66" height="73.7" width="624.0000" style="visibility: hidden; cursor: pointer;"></rect>-->
+        <!--</g>-->
+        <!--<g id="headitem_h2" style="">-->
+        <!--<text alignment-baseline="baseline" text-anchor="start" id="fooddesc1" x="1.1400in" y="3.5141666666666667in">-->
+        <!--<tspan x="1.1400in" dy="20.44" od="14.2" text-anchor="start" class="small-heading" des="3.90" asc="10.2" lh="18.15" th="18.15" oh="24.39" lw="365.9" dy0="20.44" oh0="24.39" s_aft="0.00" s_bef="6.24" n_col="0">SUBHEADING - YOU CAN EDIT OR DELETE ANY HEADINGS, OR ADD YOUR OWN</tspan>-->
+        <!--</text>-->
+        <!--<rect id="nu_headitem_h2" class="rr" x="1in" y="337.36" height="24.39" width="624.0000" style="visibility: hidden; cursor: pointer;"></rect>-->
+        <!--</g>-->
+        <g *ngIf="item.type === 'food'"class="Item foodItem">
+          <text alignment-baseline="baseline" text-anchor="start" x="1.1400in" attr.y="{{ 1.5 + i * unitLength }}in" (click)="delete(item)">
+            <tspan x="7.5in" dy="29.54" od="18.5" text-anchor="end" class="price" des="5.07" asc="13.26" lh="23.60" th="63.5400" oh="74.58" lw="42.718" dy0="29.54" oh0="74.58" bigHT="5.07" s_aft="0.00" s_bef="11.04"><tspan class="price dots"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . </tspan>{{ item.price }}</tspan>
+            <tspan x="1.1400in" dy="0" od="18.5" text-anchor="start" class="name" des="5.07" asc="13.26" lh="23.60" th="23.60" oh="23.60" lw="186.914" dy0="18.5" oh0="23.60">{{ item.name }}</tspan>
+            <!--<tspan x="1.1400in" dy="20.7700" od="15.7" text-anchor="start" class="description" des="4.29" asc="11.22" lh="19.97" th="39.94" oh="39.94" lw="420.7" dy0="15.7" oh0="39.94">This item uses Market for price. The price field can be any number or text, and can</tspan>-->
+            <!--<tspan x="1.1400in" dy="19.97" text-anchor="start" class="description" lw="295.4">even be multiple prices (separate them with a semi-colon)</tspan>-->
+          </text>
+          <!--<rect id="nu_fooditem_6" class="rr Item" x="1in" (click)="delete(item)" (mouseenter)="enter()" (mouseleave)="leave()" attr.y="{{ 1.5 + i * unitLength }}in" height="74.58" width="624.0000" style="cursor: pointer; visibility: hidden;"></rect>-->
+        </g>
+      </g>
+
+    <g id="footertext" class="text-pre"></g>
+    <g id="floattext" class="text-pre" data-target="#floatingtext-contextmenu" style="pointer-events: all;"></g>
+      <!-- 11.0.55 -->
+    <g id="floatimagesatop" data-target="#imagelist-contextmenu" style="pointer-events: all;"></g>
+    <g id="menucover"></g>
+    <rect id="faux-outline" x="0.0in" y="0.0in" width="8.5in" height="11in" fill="none" stroke-width="1px" stroke="#cacaca" shape-rendering="geometricPrecision"></rect>
+      <!-- fit -->
+    </g>
+  </g>
+</svg>
+
+<svg *ngIf="menuId===null" (click)="createMenu()" class="nullSvg" id="imp11-menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" width="571" height="739" viewBox="0 0 816 1056" xml:lang="en">
+						<g id="tt">
+							<style>
+								@page {size: letter;}
+							</style>
+
+							<defs>
+								<!--拖动时的图片-->
+                <!--top of page or column-->
+								<pattern id="movepattern_np" x="0" y="0" width="100%" height="100%" patternUnits="objectBoundingBox">
+									<image xlink:href="img\menu\moving_np.svg" preserveAspectRatio="none" x="0in" y="0in" width="3800" height="3800"></image>
+								</pattern>
+                <!--小箭头-->
+                <!--小箭头-->
+                <!-- 11.0.58 fancy back -->
+                <!--燕尾小箭头-->
+                <!-- VINTAGE -->
+								<filter id="filter_vintage">
+									<!--棕色滤镜-->
+									<feFlood flood-color="#582D1C" result="SHDCLR"></feFlood>
+									<feMorphology operator="dilate" radius="2" in="SourceAlpha" result="WSTROKE"></feMorphology>
+									<feComponentTransfer in="WSTROKE" result="WSTROKE_B">
+										<feFuncA type="table" tableValues="0.0 0.7"></feFuncA>
+									</feComponentTransfer>
+									<feOffset dx="-2.5" dy="-2.5" in="WSTROKE_B" result="dx1"></feOffset>
+									<feOffset dx="-2" dy="-2" in="WSTROKE_B" result="dx2"></feOffset>
+									<feOffset dx="-1.5" dy="-1.5" in="WSTROKE_B" result="dx3"></feOffset>
+									<feOffset dx="-1" dy="-1" in="WSTROKE_B" result="dx4"></feOffset>
+									<feOffset dx="0" dy="0" in="WSTROKE_B" result="dx5"></feOffset>
+									<feOffset dx="1" dy="1" in="WSTROKE_B" result="dx6"></feOffset>
+									<feOffset dx="1.5" dy="1.5" in="WSTROKE_B" result="dx7"></feOffset>
+									<feOffset dx="2" dy="2" in="WSTROKE_B" result="dx8"></feOffset>
+									<feOffset dx="2.5" dy="2.5" in="WSTROKE_B" result="dx9"></feOffset>
+									<feMerge result="BEVEL_20">
+										<feMergeNode in="dx1"></feMergeNode>
+										<feMergeNode in="dx2"></feMergeNode>
+										<feMergeNode in="dx3"></feMergeNode>
+										<feMergeNode in="dx4"></feMergeNode>
+										<feMergeNode in="dx5"></feMergeNode>
+										<feMergeNode in="dx6"></feMergeNode>
+										<feMergeNode in="dx7"></feMergeNode>
+										<feMergeNode in="dx8"></feMergeNode>
+										<feMergeNode in="dx9"></feMergeNode>
+									</feMerge>
+
+									<feOffset dx="2" dy="2" in="BEVEL_20" result="BEVEL_25"></feOffset>
+									<feComposite operator="out" in="BEVEL_25" in2="WSTROKE" result="BEVEL_30"></feComposite>
+									<feComposite in="SHDCLR" in2="BEVEL_30" operator="in" result="BEVEL_40"></feComposite>
+									<feMerge result="BEVEL_50">
+										<feMergeNode in="BEVEL_40"></feMergeNode>
+										<feMergeNode in="SourceGraphic"></feMergeNode>
+									</feMerge>
+									<feComposite in="BEVEL_50" operator="in"></feComposite>
+								</filter>
+                <!-- WORN -->
+								<filter id="filter_worn">
+									<feTurbulence baseFrequency=".05,.005" type="fractalNoise" numOctaves="3" seed="0"></feTurbulence>
+									<feColorMatrix type="matrix" values="0 0 0 0 0, 0 0 0 0 0, 0 0 0 0 0, 0 0 0 -0.9 1.1" result="FRACTAL-1"></feColorMatrix>
+									<feConvolveMatrix order="8,8" divisor="1" kernelMatrix="1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1"></feConvolveMatrix> <!-- IE requires no line breaks -->
+									<feComposite operator="out"></feComposite>
+									<feComposite operator="in"></feComposite>
+									<feMerge>
+									<feMergeNode></feMergeNode>
+									<feMergeNode in="SourceGraphic"></feMergeNode>
+									</feMerge>
+									<feComposite in2="FRACTAL-1" operator="in"></feComposite>
+								</filter>
+                <!-- GRUNGE -->
+								<filter id="filter_grunge">
+									<feTurbulence result="TURBULENCE" baseFrequency="0.1,0.01" numOctaves="1" seed="1"></feTurbulence>
+									<feDisplacementMap in="SourceGraphic" in2="TURBULENCE" scale="5"></feDisplacementMap>
+								</filter>
+							</defs>
+              <!--菜单长方形-->
+							<rect id="faux-white-background" fill="#f0ece0" pointer-events="fill" x="0in" y="0in" height="11in" width="8.5in"></rect>
+							<g id="background" pointer-events="none" transform="translate(0,0) scale(1,1)" style="opacity: 1;">
+								<rect id="background-rect" fill="none" x="0in" y="0in" height="11in" width="8.5in"></rect>
+							</g>
+							<g id="menuborder" pointer-events="none" transform="translate(0,0) scale(1,1)" style="opacity: 1;">
+								<image x="28.799999999999997" y="28.799999999999997" width="758.4" height="998.4" preserveAspectRatio="none" xlink:href="img\menu\border1.svg">
+								</image>
+							</g>
+							<g id="colline" pointer-events="none" style="opacity: 1;"></g>
+              <!-- faux-click must be below images -->
+							<rect id="faux-click" pointer-events="fill" fill="none" x=".1in" y=".1in" height="10.8in" width="8.3in"></rect>
+							<g id="floatimages" data-target="#imagelist-contextmenu" style="pointer-events: all;"></g>
+              <!-- grid and joiner must be below text -->
+							<g id="gridlines" pointer-events="none"></g>
+							<g id="joiner"></g>
+							<g id="textcanvas" class="text-pre" data-target="#foodcanvas-contextmenu" style="opacity: 1; pointer-events: all;">
+                  <text x="150" y="35" font-family="Verdana" font-size="35">
+                      Click to start making a menu!
+                  </text>
+
+              </g>
+							<g id="footertext" class="text-pre"></g>
+							<g id="floattext" class="text-pre" data-target="#floatingtext-contextmenu" style="pointer-events: all;"></g>
+              <!-- 11.0.55 -->
+							<g id="floatimagesatop" data-target="#imagelist-contextmenu" style="pointer-events: all;"></g>
+							<g id="menucover"></g>
+							<rect id="faux-outline" x="0.0in" y="0.0in" width="8.5in" height="11in" fill="none" stroke-width="1px" stroke="#cacaca" shape-rendering="geometricPrecision"></rect>
+              <!-- fit -->
+              <!--<rect class="hide" id="fit-anime" x="5.96779in" y="0in" width="80" height="5" fill="#0045dc">-->
+              <!--<animate id="anime-f1" attributeType="XML" attributeName="x" from="-1in" to="9.5in" dur="2s" repeatCount="indefinite"></animate>-->
+              <!--</rect>-->
+						</g>
+					</svg>
+
+

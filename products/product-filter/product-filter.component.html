@@ -1,0 +1,37 @@
+<div class="d-none d-sm-block sticky-top">
+  <div class="list-group">
+    <a class="list-group-item list-group-item-action"
+       routerLink="/products"
+       [class.active]="!category"
+    >
+      All Categories
+    </a>
+    <a *ngFor="let c of categories$ | async" class="list-group-item list-group-item-action"
+       routerLink="/products"
+       [queryParams]="{ category: c.$key }"
+       [class.active]="this.category === c.$key">
+      {{ c.name }}
+    </a>
+  </div>
+</div>
+<div class="d-block d-sm-none fixed-top bg-light p-2" dragScroll scrollbarHidden="true" style="z-index: 400;">
+  <ul class="list-inline">
+    <li class="list-inline-item">
+      <a class="nav-link btn btn-sm btn-primary"
+         routerLink="/products"
+         [class.active]="!category"
+      >
+        All Categories
+      </a>
+    </li>
+    <li *ngFor="let c of categories$ | async" class="list-inline-item">
+      <a class="nav-link btn btn-sm btn-primary"
+         routerLink="/products"
+         [queryParams]="{ category: c.$key }"
+         [class.active]="this.category === c.$key">
+        {{ c.name }}
+      </a>
+    </li>
+  </ul>
+</div>
+

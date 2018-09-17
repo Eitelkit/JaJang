@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-7">
+    <app-svg-maker></app-svg-maker>
+  </div>
+  <div class="col-3 scrollbar1">
+    <app-products-sidebar></app-products-sidebar>
+  </div>
+  <div class="col-2 scrollbar1">
+    <div *ngFor="let menu of menus" class="menuSidebar"[routerLink]="'/restaurant-dashboard/'+ restId + '/menu-maker/' + menu.key" [queryParams]="{section: 'Make Menu', mI: menu.key}">
+      <app-svg-maker-thumbnail [menuId]="menu.key" [size]="100"></app-svg-maker-thumbnail>
+    </div>
+  </div>
+</div>

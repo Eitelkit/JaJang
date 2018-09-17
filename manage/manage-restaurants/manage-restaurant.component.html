@@ -1,0 +1,51 @@
+<div class="input-group">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary" type="button" routerLink="/manage-restaurants-form/new">New Restaurant</button>
+  </div>
+  <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search...">
+</div>
+<data-table
+  [items]="items"
+  [itemCount]="itemCount"
+  (reload)="reloadItems($event)"
+>
+  <data-table-column
+    [property]="'name'"
+    [header]="'Name'"
+    [sortable]="true"
+    [resizable]="true"
+  >
+  </data-table-column>
+  <data-table-column
+    [property]="'ownerName'"
+    [header]="'Owner Name'"
+    [sortable]="true"
+    [resizable]="true"
+  >
+  </data-table-column>
+  <!--<data-table-column-->
+    <!--[property]="'$key'"-->
+    <!--[sortable]="true"-->
+  <!--&gt;-->
+    <!--<ng-template #dataTableCell let-item="item"><a [routerLink] = "'../manage-products/' + [item.$key]">Upload Food</a></ng-template>-->
+  <!--</data-table-column>-->
+
+  <data-table-column
+    [property]="'$key'"
+    [sortable]="true"
+  >
+    <ng-template #dataTableCell let-item="item"><a [routerLink] = "'../manage-restaurants-form/' + [item.key]">Restaurant Profile Edit</a></ng-template>
+  </data-table-column>
+  <data-table-column
+    [property]="'$key'"
+    [sortable]="true"
+  >
+    <ng-template #dataTableCell let-item="item"><a [routerLink] = "'/restaurant-dashboard/' + [item.key]" [queryParams]="{section: 'Manager'}">Restaurant Manage</a></ng-template>
+  </data-table-column>
+  <data-table-column
+    [property]="'$key'"
+    [sortable]="true"
+  >
+    <ng-template #dataTableCell let-item="item"><a (click)="delete(item.key)"style="color: red; cursor: pointer;">Delete</a></ng-template>
+  </data-table-column>
+</data-table>

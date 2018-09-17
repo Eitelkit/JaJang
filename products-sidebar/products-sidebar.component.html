@@ -1,0 +1,11 @@
+<div *ngIf="menuId !== null">
+  <div *ngIf="products$ | async as products">
+    <table class="table">
+      <tr *ngFor="let product of products" (click)="addFoodItem(product)">
+        <td ><img [src]="product.imageUrl" class="thumbnail"></td>
+        <td class="align-middle"> {{ product.title }}</td>
+      </tr>
+    </table>
+
+  </div>
+</div>

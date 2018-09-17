@@ -1,0 +1,59 @@
+<mat-divider class="mt-3"></mat-divider>
+<div class="mt-1 row">
+  <div class="col-3">
+    <h3> {{ restaurantName }}</h3>
+  </div>
+  <div class="col mt-2">
+    <button mat-raised-button (click)="clearCart()">Remove</button>
+  </div>
+</div>
+<ng-container *ngIf="cart$ | async as cart">
+  <p>
+    You have {{ cart.totalItemsCount }} items in the shopping cart.
+  </p>
+  <table class="table">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Product</th>
+      <th style="width: 230px;">Quantity</th>
+      <th style="width: 200px;">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of cart.items">
+      <td><img [src]="item.imageUrl" class="thumbnail"></td>
+      <td class="align-middle">
+        {{ item.title }}
+      </td>
+      <td>
+        <app-product-quantity class="mr-3" [product]="item" [shoppingCart]="cart" [restuarantId]="restaurantId"></app-product-quantity>
+      </td>
+      <td class="align-middle">
+        {{ item.totalPrice | currency:'USD':true}}
+      </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>
+        {{ cart.totalPrice | currency:'USD':true}}
+      </th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>
+        <button  *ngIf="this.tableId===null" mat-raised-button color="primary" [routerLink]="'/check-out/' + restaurantId">Check Out</button>
+        <button  *ngIf="this.tableId!==null" mat-raised-button color="primary" (click)="placeOrder(cart.items)">Place Order</button>
+      </th>
+    </tr>
+    </tfoot>
+  </table>
+
+</ng-container>
+

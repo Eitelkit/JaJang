@@ -1,0 +1,108 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+    <a class="navbar-brand h1 p-1 m-1" routerLink="/">
+      <img class="rounded-circle" src="../../assets/dropdown-button.svg" style="height:35px; width:35px" />
+      JaJang
+    </a>
+    <button (click)="isCollapsed = !isCollapsed" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a *ngIf="this.tableId===null"class="nav-link" routerLink="/shopping-cart">Shopping Cart
+            <ng-container *ngIf="cart$ | async as cart">
+              <span *ngIf="cart.totalItemsCount !== 0" class="badge badge-warning badge-pill">{{ cart.totalItemsCount }}</span>
+            </ng-container>
+          </a>
+          <a *ngIf="this.tableId!==null"class="nav-link" routerLink="/shopping-cart" [queryParams]="{tableKey: tableId}" >Shopping Cart
+            <ng-container *ngIf="cart$ | async as cart">
+              <span *ngIf="cart.totalItemsCount !== 0" class="badge badge-warning badge-pill">{{ cart.totalItemsCount }}</span>
+            </ng-container>
+          </a>
+        </li>
+        <ng-template #anonymousUser>
+          <li class="nav-item">
+            <a class="nav-link" (click)="openVerticallyCentered(content)" style="cursor: pointer;">Login</a>
+          </li>
+        </ng-template>
+        <li *ngIf="appUser as user; else anonymousUser" ngbDropdown placement="bottom-right" class="nav-item dropdown">
+          <a ngbDropdownToggle placement="bottom-right" class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown">
+            {{ appUser.name || appUser.email }}
+          </a>
+          <div ngbDropdownMenu class="dropdown-menu">
+          <!--<a class="dropdown-item" routerLink="/my/orders">My Orders</a>-->
+          <ng-container *ngIf="appUser.isAdmin">
+            <!--<div class="dropdown-divider"></div>-->
+            <a class="dropdown-item" routerLink="/admin/restaurants">Admin Restaurant</a>
+          </ng-container>
+          <div class="dropdown-divider"></div>
+            <ng-container>
+              <a class="dropdown-item" [routerLink]="'/manage-restaurants'">My Restaurants</a>
+            </ng-container>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="logout()">Log out</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+<!--login modal-->
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Login</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-left">
+    <div *ngIf="isNewUser">
+      <p *ngIf="errorMessage.length > 0" class="text-danger">
+        {{errorMessage}}</p>
+      <p *ngIf="error.message.length > 0" class="text-danger">
+        {{error.message}}</p>
+      <form (ngSubmit)="signUpWithEmail()">
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" placeholder="Enter email"required >
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" placeholder="Password" required >
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+        <h6 class="text-primary" (click)="changeForm()">Already have an Account? >> Log In</h6>
+      </form>
+    </div>
+    <div *ngIf="!isNewUser">
+      <p *ngIf="errorMessage.length > 0" class="text-danger">
+        {{errorMessage}}</p>
+      <p *ngIf="error.message.length > 0" class="text-danger">
+        {{error.message}}</p>
+      <form (ngSubmit)="loginWithEmail()">
+        <div class="form-group">
+          <label for="email1">Email address</label>
+          <input type="email" class="form-control" id="email1" name="email"  [(ngModel)]="email" placeholder="Enter email"required >
+          <small id="emailHelp1" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="password1">Password</label>
+          <input type="password" class="form-control" id="password1" name="password" [(ngModel)]="password" placeholder="Password" required >
+        </div>
+        <button type="submit" class="btn btn-primary">Log In</button>
+        <h6 class="text-primary" (click)="changeForm()">Not have any Account yet? >> Register</h6>
+        <a *ngIf="!resetPassword && isValidMailFormat(email)" class="text-danger" (click)="sendResetEmail()">Reset Password for {{email}}</a>
+        <p *ngIf="resetPassword" class="text-success">Check your email to reset password!</p>
+      </form>
+    </div>
+    <div class="text-center mt-3"><img (click) = "login()" src="../../assets/google_button.png" style="height:50px;max-width: 100%;cursor: pointer;"></div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>

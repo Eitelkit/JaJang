@@ -1,0 +1,23 @@
+<h2> {{ restaurantName }}</h2>
+<div class="d-block d-sm-none">
+  <div class="row" *ngIf="cart$ | async as cart">
+    <app-restaurant-product-filter [category]="category"></app-restaurant-product-filter>
+    <div class="card-columns" *ngIf="filteredProducts !== []">
+      <app-product-card *ngFor="let product of filteredProducts" [product]="product" [shoppingCart]="cart" class="card"></app-product-card>
+    </div>
+  </div>
+</div>
+<div class="d-none d-sm-block">
+  <div class="row" *ngIf="cart$| async as cart">
+    <div class="col-3">
+      <app-restaurant-product-filter [category]="category"></app-restaurant-product-filter>
+    </div>
+    <div class="col-9">
+      <div class="card-columns" *ngIf="filteredProducts !== []">
+        <div *ngFor="let product of filteredProducts">
+          <app-product-card *ngIf="product !== undefined" [product]="product" [shoppingCart]="cart" class="card"></app-product-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
